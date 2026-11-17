@@ -366,7 +366,7 @@
     }
     .visit-card p, .hours li { color: var(--muted); }
     .visit-card a { color: var(--white); }
-    .hours { list-style: none; margin: 12px 0 0; }
+    .hours { list-style: none; margin: 22px 0 0; }
     .hours li {
       display: flex;
       justify-content: space-between;
@@ -381,6 +381,36 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 20px;
+    }
+    .contact-block {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .contact-block .phone-label {
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .contact-block .phone-display {
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: .01em;
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+    .contact-block .phone-display a { text-decoration: none; }
+    .contact-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .contact-actions .btn {
+      width: 100%;
+      padding-left: 12px;
+      padding-right: 12px;
     }
     .map-wrap {
       min-height: 300px;
@@ -501,7 +531,7 @@
         <p class="hero-meta">
           <span>Kettle House, Muthangari Road, Lavington</span>
           <span>Open daily <strong>9:00 AM – 8:00 PM</strong></span>
-          <span>Rated <strong>4.8</strong> on Welns</span>
+          <span><strong>4.8</strong> on Google (63 reviews)</span>
         </p>
       </div>
     </section>
@@ -638,6 +668,16 @@
           <div class="visit-card reveal">
             <h3>Reset Barbershop</h3>
             <p>Kettle House, Muthangari Road<br>Lavington, Nairobi</p>
+            <div class="contact-block" id="contact">
+              <p class="phone-label">Phone</p>
+              <p class="phone-display"><a href="tel:+254796357344">+254 796 357 344</a></p>
+              <div class="contact-actions">
+                <a class="btn btn-ghost" href="tel:+254796357344">Call</a>
+                <a class="btn btn-ghost" href="sms:+254796357344">Text / SMS</a>
+                <a class="btn btn-whatsapp" href="https://wa.me/254796357344" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Reset+Barbershop+Lavington+Nairobi" target="_blank" rel="noopener noreferrer">Get directions</a>
+              </div>
+            </div>
             <ul class="hours">
               <li>Monday <span>9:00 AM – 8:00 PM</span></li>
               <li>Tuesday <span>9:00 AM – 8:00 PM</span></li>
@@ -649,8 +689,6 @@
             </ul>
             <div class="visit-actions">
               <a class="btn btn-primary" href="https://www.welns.io/product/booking/WFRCHN000014896/ResetBarbershop" target="_blank" rel="noopener noreferrer">Book now</a>
-              <a class="btn btn-whatsapp" href="https://wa.me/254796357344?text=Hi%20Reset%20Barbershop%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-              <a class="btn btn-ghost" href="tel:+254796357344">Call</a>
             </div>
           </div>
           <div class="map-wrap reveal reveal-delay-1">
