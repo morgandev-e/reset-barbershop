@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2d3840">
+  <meta name="description" content="Reset Barbershop in Kettle House, Lavington. Cuts, colour, facials, manicures, pedicures and massage. Book online or message on WhatsApp.">
+  <title>Reset Barbershop | Lavington, Nairobi</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #2d3840;
+      --navy-deep: #1a2228;
+      --navy-mid: #3a4650;
+      --white: #ffffff;
+      --cream: #f3efe8;
+      --muted: #c5cbce;
+      --muted-dark: #5c666d;
+      --line: rgba(255,255,255,.14);
+      --line-dark: rgba(45,56,64,.14);
+      --whatsapp: #25d366;
+      --radius: 16px;
+      --header-h: 64px;
+      --bar-h: 76px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+
+    body {
+      font-family: Outfit, system-ui, -apple-system, sans-serif;
+      background: var(--navy-deep);
+      color: var(--white);
+      line-height: 1.55;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .skip {
+      position: absolute;
+      left: 12px;
+      top: -40px;
+      background: var(--white);
+      color: var(--navy);
+      padding: 8px 12px;
+      z-index: 100;
+      border-radius: 8px;
+    }
+    .skip:focus { top: 12px; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(26,34,40,.86);
+      border-bottom: 1px solid var(--line);
+      padding: 0 18px;
+      padding-top: env(safe-area-inset-top);
+    }
+    .header-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .logo {
+      text-decoration: none;
+      letter-spacing: .28em;
+      font-weight: 500;
+      font-size: .92rem;
+      color: var(--white);
+    }
+    .logo span {
+      display: block;
+      letter-spacing: .22em;
+      font-size: .58rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .nav {
+      display: none;
+      gap: 22px;
+      font-size: .92rem;
+    }
+    .nav a { text-decoration: none; color: var(--muted); }
+    .nav a:hover { color: var(--white); }
+    .header-book {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: .88rem;
+      padding: 10px 16px;
+      border-radius: 999px;
+      min-height: 44px;
+    }
+    .header-book:hover { opacity: .92; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--header-h));
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero picture, .hero picture img, .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(26,34,40,.28) 0%, rgba(26,34,40,.45) 38%, rgba(26,34,40,.92) 100%);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 48px 0 120px;
+    }
+    .eyebrow {
+      font-size: .72rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .hero-rotator {
+      display: grid;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 8vw, 4.1rem);
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      max-width: 16ch;
+      min-height: 2.4em;
+    }
+    .hero-rotator > span {
+      grid-area: 1 / 1;
+      opacity: 0;
+      transition: opacity .9s ease;
+    }
+    .hero-rotator > span.is-active { opacity: 1; }
+    .hero-tagline {
+      margin-top: 18px;
+      max-width: 28ch;
+      font-size: 1.08rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: .95rem;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--white); color: var(--navy); }
+    .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.35); }
+    .btn-whatsapp { background: var(--whatsapp); color: #083216; }
+    .btn:hover { opacity: .93; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 28px;
+      font-size: .86rem;
+      color: var(--muted);
+    }
+    .hero-meta strong { color: var(--white); font-weight: 500; }
+
+    /* Hero entrance */
+    .hero-enter > * {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise 1s ease forwards;
+    }
+    .hero-enter > *:nth-child(1) { animation-delay: .12s; }
+    .hero-enter > *:nth-child(2) { animation-delay: .28s; }
+    .hero-enter > *:nth-child(3) { animation-delay: .42s; }
+    .hero-enter > *:nth-child(4) { animation-delay: .56s; }
+    .hero-enter > *:nth-child(5) { animation-delay: .7s; }
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+
+    /* Sections */
+    section { padding: 72px 20px; }
+    .wrap { width: min(var(--max), 100%); margin: 0 auto; }
+    .section-kicker {
+      font-size: .72rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+    .section-lead {
+      color: var(--muted);
+      max-width: 46ch;
+      margin-bottom: 28px;
+    }
+
+    /* About strip */
+    .about {
+      background: var(--navy);
+    }
+    .about-grid {
+      display: grid;
+      gap: 28px;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .fact {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+    .fact dt {
+      font-size: .72rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .fact dd { font-size: 1rem; }
+
+    /* Services */
+    .services { background: var(--cream); color: var(--navy-deep); }
+    .services .section-kicker { color: var(--muted-dark); }
+    .services .section-lead { color: var(--muted-dark); }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 6px;
+      margin-bottom: 22px;
+      scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab {
+      flex: 0 0 auto;
+      border: 1px solid var(--line-dark);
+      background: transparent;
+      color: var(--navy);
+      font: inherit;
+      font-weight: 500;
+      font-size: .88rem;
+      padding: 10px 16px;
+      min-height: 44px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .tab[aria-selected="true"] {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+    .panel { display: none; }
+    .panel.is-open { display: block; }
+    .service-card {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 10px 30px rgba(26,34,40,.06);
+    }
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .menu { list-style: none; padding: 8px 4px 12px; }
+    .menu li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .menu li:last-child { border-bottom: 0; }
+    .svc-name { font-weight: 500; }
+    .svc-meta {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .svc-price { font-weight: 500; }
+    .svc-mins {
+      display: block;
+      font-size: .78rem;
+      color: var(--muted-dark);
+    }
+    .price-note {
+      margin-top: 16px;
+      font-size: .82rem;
+      color: var(--muted-dark);
+    }
+
+    /* Visit */
+    .visit { background: var(--navy); }
+    .visit-grid {
+      display: grid;
+      gap: 24px;
+    }
+    .visit-card, .map-wrap {
+      background: var(--navy-mid);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .visit-card { padding: 24px; }
+    .visit-card h3 {
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+    }
+    .visit-card p, .hours li { color: var(--muted); }
+    .visit-card a { color: var(--white); }
+    .hours { list-style: none; margin: 12px 0 0; }
+    .hours li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--white);
+    }
+    .hours li span { color: var(--muted); }
+    .visit-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .map-wrap {
+      min-height: 300px;
+      height: 100%;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: 0;
+      filter: grayscale(.15) contrast(1.02);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--navy-deep);
+      padding: 36px 20px calc(var(--bar-h) + 28px + env(safe-area-inset-bottom));
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+    footer strong { color: var(--white); font-weight: 500; }
+    .foot-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin: 12px 0 18px;
+    }
+    .credits { font-size: .75rem; opacity: .85; max-width: 52ch; margin: 12px auto 0; }
+
+    /* Sticky action bar */
+    .action-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      display: flex;
+      gap: 8px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(26,34,40,.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+    }
+    .action-bar .btn { flex: 1; }
+
+    /* Scroll reveals */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.is-in {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .18s; }
+
+    @media (min-width: 720px) {
+      .nav { display: flex; }
+      .hero-inner { padding: 72px 0 96px; }
+      .about-grid, .visit-grid { grid-template-columns: 1.1fr .9fr; align-items: stretch; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .service-card { display: grid; grid-template-columns: 280px 1fr; }
+      .service-card img { height: 100%; min-height: 280px; }
+      .action-bar { display: none; }
+      footer { padding-bottom: 48px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-enter > *,
+      .reveal {
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: none;
+      }
+      .hero-rotator > span { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#services">Skip to services</a>
+
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="#top">RESET<span>BARBERSHOP</span></a>
+      <nav class="nav" aria-label="Page">
+        <a href="#services">Services</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="header-book" href="https://www.welns.io/product/booking/WFRCHN000014896/ResetBarbershop" target="_blank" rel="noopener noreferrer">Book now</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Reset Barbershop">
+      <picture>
+        <source media="(max-width: 700px)" srcset="assets/hero-sm.webp" type="image/webp">
+        <img class="hero-bg" src="assets/hero.webp" alt="" width="1600" height="1063">
+      </picture>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-inner hero-enter">
+        <p class="eyebrow">Pause · Stop · Reset</p>
+        <h1 class="hero-rotator" id="hero-headline" aria-live="polite">
+          <span class="is-active">Been a while? Walk out a new you.</span>
+          <span aria-hidden="true">More than a cut. A full reset.</span>
+          <span aria-hidden="true">Reset, relax, and walk out brand new.</span>
+        </h1>
+        <p class="hero-tagline">Where people make your hair look good and you feel good.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://www.welns.io/product/booking/WFRCHN000014896/ResetBarbershop" target="_blank" rel="noopener noreferrer">Book now</a>
+          <a class="btn btn-ghost" href="https://wa.me/254796357344?text=Hi%20Reset%20Barbershop%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+        <p class="hero-meta">
+          <span>Kettle House, Muthangari Road, Lavington</span>
+          <span>Open daily <strong>9:00 AM – 8:00 PM</strong></span>
+          <span>Rated <strong>4.8</strong> on Welns</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="reveal">
+          <p class="section-kicker">The shop</p>
+          <h2 class="section-title">A cut, a facial, a full reset.</h2>
+          <p class="section-lead">Reset Barbershop is a grooming studio for men, women and children at Kettle House on Muthangari Road in Lavington. Alongside cuts, line-ups and colour, the menu covers hands, feet, facials and massage.</p>
+          <p class="section-lead">Book as a guest — no account needed — and pay at the shop. If you like, ask about a hot towel before your cut.</p>
+        </div>
+        <dl class="facts reveal reveal-delay-1">
+          <div class="fact">
+            <dt>Find us</dt>
+            <dd>Kettle House, Muthangari Road, Lavington, Nairobi</dd>
+          </div>
+          <div class="fact">
+            <dt>Hours</dt>
+            <dd>Every day, 9:00 AM – 8:00 PM</dd>
+          </div>
+          <div class="fact">
+            <dt>Call</dt>
+            <dd><a href="tel:+254796357344">+254 796 357 344</a></dd>
+          </div>
+          <div class="fact">
+            <dt>Book</dt>
+            <dd>Online via Welns, or WhatsApp</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="section-kicker">The menu</p>
+          <h2 class="section-title">Services</h2>
+          <p class="section-lead">Hair, hands and feet, facials and massage — prices as listed on the shop’s Welns booking page.</p>
+        </div>
+
+        <div class="tabs reveal" role="tablist" aria-label="Service categories">
+          <button class="tab" role="tab" id="tab-hair" aria-controls="panel-hair" aria-selected="true">Hair</button>
+          <button class="tab" role="tab" id="tab-hands" aria-controls="panel-hands" aria-selected="false">Hands &amp; feet</button>
+          <button class="tab" role="tab" id="tab-facials" aria-controls="panel-facials" aria-selected="false">Facials</button>
+          <button class="tab" role="tab" id="tab-massage" aria-controls="panel-massage" aria-selected="false">Massage</button>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="panel is-open" role="tabpanel" id="panel-hair" aria-labelledby="tab-hair">
+            <article class="service-card">
+              <img src="assets/hair.webp" alt="" width="900" height="700">
+              <ul class="menu">
+                <li><span class="svc-name">Bespoke Cut</span><span class="svc-meta"><span class="svc-price">KSh 1,500</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Gentleman’s Cut</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">45 min</span></span></li>
+                <li><span class="svc-name">Beard / Mustache Trim</span><span class="svc-meta"><span class="svc-price">KSh 500</span><span class="svc-mins">15 min</span></span></li>
+                <li><span class="svc-name">Line Up</span><span class="svc-meta"><span class="svc-price">KSh 500</span><span class="svc-mins">15 min</span></span></li>
+                <li><span class="svc-name">Line Up &amp; Beard / Mustache Trim</span><span class="svc-meta"><span class="svc-price">KSh 800</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Ladies Bespoke Cut</span><span class="svc-meta"><span class="svc-price">KSh 1,500</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Ladies Fresh Cut</span><span class="svc-meta"><span class="svc-price">KSh 2,000</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Bespoke Kid’s Cut</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">45 min</span></span></li>
+                <li><span class="svc-name">Eye Brow Trim</span><span class="svc-meta"><span class="svc-price">KSh 300</span><span class="svc-mins">20 min</span></span></li>
+                <li><span class="svc-name">Headwash</span><span class="svc-meta"><span class="svc-price">KSh 500</span><span class="svc-mins">15 min</span></span></li>
+                <li><span class="svc-name">Gray Reduction</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">20 min</span></span></li>
+                <li><span class="svc-name">Treatment</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">20 min</span></span></li>
+                <li><span class="svc-name">Texturizing</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">20 min</span></span></li>
+                <li><span class="svc-name">Full Colour</span><span class="svc-meta"><span class="svc-price">KSh 5,000</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Half Colour</span><span class="svc-meta"><span class="svc-price">KSh 3,000</span><span class="svc-mins">20 min</span></span></li>
+                <li><span class="svc-name">Colour Retouch</span><span class="svc-meta"><span class="svc-price">KSh 3,000</span><span class="svc-mins">15 min</span></span></li>
+                <li><span class="svc-name">Haircut &amp; Gray Reduction</span><span class="svc-meta"><span class="svc-price">KSh 2,500</span><span class="svc-mins">80 min</span></span></li>
+                <li><span class="svc-name">Haircut &amp; Treatment</span><span class="svc-meta"><span class="svc-price">KSh 2,500</span><span class="svc-mins">80 min</span></span></li>
+                <li><span class="svc-name">Haircut &amp; Texturizing</span><span class="svc-meta"><span class="svc-price">KSh 2,500</span><span class="svc-mins">80 min</span></span></li>
+                <li><span class="svc-name">Art</span><span class="svc-meta"><span class="svc-price">KSh 500</span><span class="svc-mins">15 min</span></span></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-hands" aria-labelledby="tab-hands" hidden>
+            <article class="service-card">
+              <img src="assets/hands.webp" alt="" width="900" height="700">
+              <ul class="menu">
+                <li><span class="svc-name">Manicure Full</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Mani Express: Hand Cut &amp; File</span><span class="svc-meta"><span class="svc-price">KSh 600</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Pedicure Full</span><span class="svc-meta"><span class="svc-price">KSh 2,000</span><span class="svc-mins">80 min</span></span></li>
+                <li><span class="svc-name">Pedi Express: Feet Cut &amp; File</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">40 min</span></span></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-facials" aria-labelledby="tab-facials" hidden>
+            <article class="service-card">
+              <img src="assets/facial.webp" alt="" width="900" height="700">
+              <ul class="menu">
+                <li><span class="svc-name">Full Facial — Steam, Scrub, Mask</span><span class="svc-meta"><span class="svc-price">KSh 3,000</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Face Steaming — Wash &amp; Go</span><span class="svc-meta"><span class="svc-price">KSh 1,500</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Face Mask — Wash &amp; Mask</span><span class="svc-meta"><span class="svc-price">KSh 1,000</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Face Scrub — Scrub &amp; Go</span><span class="svc-meta"><span class="svc-price">KSh 800</span><span class="svc-mins">20 min</span></span></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-massage" aria-labelledby="tab-massage" hidden>
+            <article class="service-card">
+              <img src="assets/massage.webp" alt="" width="900" height="700">
+              <ul class="menu">
+                <li><span class="svc-name">Scalp &amp; Neck</span><span class="svc-meta"><span class="svc-price">KSh 500</span><span class="svc-mins">15 min</span></span></li>
+                <li><span class="svc-name">Shoulder, Neck &amp; Head Massage</span><span class="svc-meta"><span class="svc-price">KSh 2,000</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Back, Neck &amp; Shoulder</span><span class="svc-meta"><span class="svc-price">KSh 2,500</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Classic Massage (30 min)</span><span class="svc-meta"><span class="svc-price">KSh 2,500</span><span class="svc-mins">30 min</span></span></li>
+                <li><span class="svc-name">Classic Massage (60 min)</span><span class="svc-meta"><span class="svc-price">KSh 3,500</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Classic Massage (90 min)</span><span class="svc-meta"><span class="svc-price">KSh 5,500</span><span class="svc-mins">90 min</span></span></li>
+                <li><span class="svc-name">Aroma Therapy Massage (60 min)</span><span class="svc-meta"><span class="svc-price">KSh 4,500</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Aroma Therapy Massage (90 min)</span><span class="svc-meta"><span class="svc-price">KSh 6,500</span><span class="svc-mins">90 min</span></span></li>
+                <li><span class="svc-name">Deep Tissue (60 min)</span><span class="svc-meta"><span class="svc-price">KSh 4,000</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Deep Tissue (90 min)</span><span class="svc-meta"><span class="svc-price">KSh 6,000</span><span class="svc-mins">90 min</span></span></li>
+                <li><span class="svc-name">Sports Massage</span><span class="svc-meta"><span class="svc-price">KSh 4,500</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Foot Reflex (60 min)</span><span class="svc-meta"><span class="svc-price">KSh 3,000</span><span class="svc-mins">60 min</span></span></li>
+                <li><span class="svc-name">Couple’s Massage (90 min)</span><span class="svc-meta"><span class="svc-price">KSh 10,000</span><span class="svc-mins">90 min</span></span></li>
+              </ul>
+            </article>
+          </div>
+          <p class="price-note">Prices are taken from the shop’s Welns booking page and may change. Confirm when you book. Guest booking is available — no account required — and you pay at the shop.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="section-kicker">Visit</p>
+          <h2 class="section-title">Find us in Lavington.</h2>
+        </div>
+        <div class="visit-grid">
+          <div class="visit-card reveal">
+            <h3>Reset Barbershop</h3>
+            <p>Kettle House, Muthangari Road<br>Lavington, Nairobi</p>
+            <ul class="hours">
+              <li>Monday <span>9:00 AM – 8:00 PM</span></li>
+              <li>Tuesday <span>9:00 AM – 8:00 PM</span></li>
+              <li>Wednesday <span>9:00 AM – 8:00 PM</span></li>
+              <li>Thursday <span>9:00 AM – 8:00 PM</span></li>
+              <li>Friday <span>9:00 AM – 8:00 PM</span></li>
+              <li>Saturday <span>9:00 AM – 8:00 PM</span></li>
+              <li>Sunday <span>9:00 AM – 8:00 PM</span></li>
+            </ul>
+            <div class="visit-actions">
+              <a class="btn btn-primary" href="https://www.welns.io/product/booking/WFRCHN000014896/ResetBarbershop" target="_blank" rel="noopener noreferrer">Book now</a>
+              <a class="btn btn-whatsapp" href="https://wa.me/254796357344?text=Hi%20Reset%20Barbershop%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="btn btn-ghost" href="tel:+254796357344">Call</a>
+            </div>
+          </div>
+          <div class="map-wrap reveal reveal-delay-1">
+            <iframe
+              title="Map of Reset Barbershop at Kettle House, Muthangari Road, Lavington"
+              src="https://maps.google.com/maps?q=Kettle+House,+Muthangari+Road,+Lavington,+Nairobi&ll=-1.287511,36.7717788&z=17&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Sample site by Morgan</strong></p>
+    <div class="foot-links">
+      <a href="https://linktr.ee/resetbarbershop" target="_blank" rel="noopener noreferrer">Linktree</a>
+      <a href="https://www.welns.io/product/booking/WFRCHN000014896/ResetBarbershop" target="_blank" rel="noopener noreferrer">Book on Welns</a>
+      <a href="tel:+254796357344">+254 796 357 344</a>
+    </div>
+    <p class="credits">Photos are royalty-free stock from Unsplash and Pexels, used for this sample — not photographs of the shop.</p>
+  </footer>
+
+  <div class="action-bar" aria-label="Quick actions">
+    <a class="btn btn-primary" href="https://www.welns.io/product/booking/WFRCHN000014896/ResetBarbershop" target="_blank" rel="noopener noreferrer">Book now</a>
+    <a class="btn btn-whatsapp" href="https://wa.me/254796357344?text=Hi%20Reset%20Barbershop%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+  </div>
+
+  <script>
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+      var panels = Array.prototype.slice.call(document.querySelectorAll(".panel"));
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var id = tab.getAttribute("aria-controls");
+          tabs.forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+          panels.forEach(function (p) {
+            var open = p.id === id;
+            p.classList.toggle("is-open", open);
+            if (open) p.removeAttribute("hidden");
+            else p.setAttribute("hidden", "");
+          });
+        });
+      });
+
+      if (!reduce) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-in");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
+      }
+
+      var lines = document.querySelectorAll(".hero-rotator > span");
+      if (lines.length > 1 && !reduce) {
+        var i = 0;
+        var timer = setInterval(function () {
+          lines[i].classList.remove("is-active");
+          lines[i].setAttribute("aria-hidden", "true");
+          i = (i + 1) % lines.length;
+          lines[i].classList.add("is-active");
+          lines[i].removeAttribute("aria-hidden");
+        }, 5200);
+        document.querySelector(".hero-rotator").addEventListener("mouseenter", function () { clearInterval(timer); });
+      }
+    })();
+  </script>
+</body>
+</html>
